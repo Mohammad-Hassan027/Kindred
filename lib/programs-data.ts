@@ -23,6 +23,31 @@ export interface ProgramTestimonial {
   role: string
 }
 
+export interface FundAllocation {
+  label: string
+  percentage: number
+  color: string
+}
+
+export interface ProjectMilestone {
+  id: number
+  title: string
+  date: string
+  description: string
+  image: string
+  lat: number
+  lng: number
+  completed: boolean
+}
+
+export interface TransparencyInfo {
+  grade: string
+  evaluator: string
+  evaluatorUrl: string
+  lastAudit: string
+  score: number // out of 100
+}
+
 export interface Program {
   id: number
   title: string
@@ -43,6 +68,9 @@ export interface Program {
   featured: boolean
   /** Name of the local NGO that independently verified this program */
   verifiedBy: string
+  fundAllocation: FundAllocation[]
+  milestones: ProjectMilestone[]
+  transparency: TransparencyInfo
 }
 
 // ─── Mock data ──────────────────────────────────────────────────────────────
@@ -87,6 +115,17 @@ Since inception, this program has helped over 3,200 children stay in school and 
     location: "Sub-Saharan Africa & South Asia",
     featured: true,
     verifiedBy: "African Education Trust",
+    fundAllocation: [
+      { label: "Direct Program Costs", percentage: 75, color: "#059669" },
+      { label: "Local Staff & Training", percentage: 15, color: "#10b981" },
+      { label: "Operational Overhead", percentage: 10, color: "#6ee7b7" },
+    ],
+    milestones: [
+      { id: 1, title: "School supplies distributed to 500 students", date: "2025-09-15", description: "First batch of textbooks, notebooks, and stationery delivered across 12 schools.", image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80", lat: -1.2921, lng: 36.8219, completed: true },
+      { id: 2, title: "Teacher training workshop — Cohort 3", date: "2026-01-20", description: "45 educators completed a 3-week intensive pedagogical workshop.", image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&q=80", lat: 12.9716, lng: 77.5946, completed: true },
+      { id: 3, title: "New classroom block opened in Makueni", date: "2026-06-01", description: "A 4-room classroom block inaugurated, serving 200 students.", image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&q=80", lat: -2.0, lng: 37.6, completed: false },
+    ],
+    transparency: { grade: "A+", evaluator: "Charity Navigator", evaluatorUrl: "https://charitynavigator.org", lastAudit: "March 2026", score: 97 },
   },
   {
     id: 2,
@@ -127,6 +166,17 @@ Each well we build serves an average of 500 people and reduces waterborne illnes
     location: "East Africa & Southeast Asia",
     featured: true,
     verifiedBy: "WaterAid Kenya",
+    fundAllocation: [
+      { label: "Direct Program Costs", percentage: 72, color: "#0284c7" },
+      { label: "Local Staff & Training", percentage: 18, color: "#38bdf8" },
+      { label: "Operational Overhead", percentage: 10, color: "#bae6fd" },
+    ],
+    milestones: [
+      { id: 1, title: "Well #38 completed in Turkana County", date: "2025-11-10", description: "Deep bore-hole well serving 600 people.", image: "https://images.unsplash.com/photo-1538300342682-cf57afb97285?w=400&q=80", lat: 3.1, lng: 35.6, completed: true },
+      { id: 2, title: "Solar purification unit installed", date: "2026-02-14", description: "Solar-powered system providing clean water to 3 villages.", image: "https://images.pexels.com/photos/28101466/pexels-photo-28101466.jpeg?w=400", lat: -0.4, lng: 36.9, completed: true },
+      { id: 3, title: "Hygiene education rollout — Phase 2", date: "2026-07-01", description: "Training community health workers in hygiene best practices.", image: "https://images.pexels.com/photos/3079978/pexels-photo-3079978.jpeg?w=400", lat: 15.3, lng: 104.0, completed: false },
+    ],
+    transparency: { grade: "A+", evaluator: "GiveWell", evaluatorUrl: "https://givewell.org", lastAudit: "January 2026", score: 95 },
   },
   {
     id: 3,
@@ -167,6 +217,17 @@ Each clinic serves 200–400 patients per month and operates on a sustainable mo
     location: "Central America & West Africa",
     featured: true,
     verifiedBy: "Médicos Sin Fronteras MX",
+    fundAllocation: [
+      { label: "Direct Program Costs", percentage: 70, color: "#dc2626" },
+      { label: "Local Staff & Training", percentage: 20, color: "#f87171" },
+      { label: "Operational Overhead", percentage: 10, color: "#fecaca" },
+    ],
+    milestones: [
+      { id: 1, title: "Mobile clinic deployed to rural Guatemala", date: "2025-08-20", description: "Full medical unit with vaccine cold storage.", image: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=400&q=80", lat: 14.6, lng: -90.5, completed: true },
+      { id: 2, title: "1,000th patient milestone", date: "2026-01-05", description: "Community health clinic reached 1,000 patients served.", image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&q=80", lat: 7.4, lng: -3.9, completed: true },
+      { id: 3, title: "Health worker certification program", date: "2026-08-01", description: "Graduating 30 local health workers.", image: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=400&q=80", lat: 9.0, lng: -12.0, completed: false },
+    ],
+    transparency: { grade: "A+", evaluator: "Charity Navigator", evaluatorUrl: "https://charitynavigator.org", lastAudit: "February 2026", score: 96 },
   },
   {
     id: 4,
@@ -207,6 +268,17 @@ Every tree planted sequesters an average of 48 lbs of CO₂ per year. Our goal i
     location: "Amazon Basin & Southeast Asia",
     featured: true,
     verifiedBy: "Amazon Conservation Assoc.",
+    fundAllocation: [
+      { label: "Direct Program Costs", percentage: 78, color: "#16a34a" },
+      { label: "Local Staff & Training", percentage: 12, color: "#4ade80" },
+      { label: "Operational Overhead", percentage: 10, color: "#bbf7d0" },
+    ],
+    milestones: [
+      { id: 1, title: "50,000 native trees planted", date: "2025-07-01", description: "First major planting milestone across 600 acres.", image: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=400&q=80", lat: -3.4, lng: -62.2, completed: true },
+      { id: 2, title: "Agroforestry training — Cohort 2", date: "2026-03-15", description: "120 farmers trained in regenerative agroforestry.", image: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=400&q=80", lat: 1.35, lng: 103.8, completed: true },
+      { id: 3, title: "Wildlife corridor mapping complete", date: "2026-09-01", description: "Green corridor plan connecting 3 fragmented habitats.", image: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=400&q=80", lat: -5.0, lng: -60.0, completed: false },
+    ],
+    transparency: { grade: "A+", evaluator: "GuideStar", evaluatorUrl: "https://guidestar.org", lastAudit: "April 2026", score: 98 },
   },
   {
     id: 5,
@@ -247,6 +319,17 @@ Over 85% of our micro-loan recipients successfully repay their loans within 18 m
     location: "South Asia & East Africa",
     featured: false,
     verifiedBy: "BRAC Bangladesh",
+    fundAllocation: [
+      { label: "Direct Program Costs", percentage: 73, color: "#7c3aed" },
+      { label: "Local Staff & Training", percentage: 17, color: "#a78bfa" },
+      { label: "Operational Overhead", percentage: 10, color: "#ddd6fe" },
+    ],
+    milestones: [
+      { id: 1, title: "Micro-loan batch #12 disbursed", date: "2025-10-01", description: "85 women received micro-loans for small businesses.", image: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=400&q=80", lat: 23.8, lng: 90.4, completed: true },
+      { id: 2, title: "Tailoring centre opened in Dhaka", date: "2026-02-28", description: "New vocational centre training 40 women per cycle.", image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=400&q=80", lat: 23.8, lng: 90.4, completed: true },
+      { id: 3, title: "Digital literacy program launch", date: "2026-08-15", description: "Teaching computer skills and online marketing.", image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&q=80", lat: -1.3, lng: 36.8, completed: false },
+    ],
+    transparency: { grade: "A+", evaluator: "Charity Navigator", evaluatorUrl: "https://charitynavigator.org", lastAudit: "March 2026", score: 94 },
   },
   {
     id: 6,
@@ -287,6 +370,17 @@ Beyond immediate relief, we fund medium-term recovery — rebuilding schools, re
     location: "Global",
     featured: false,
     verifiedBy: "IFRC Relief Network",
+    fundAllocation: [
+      { label: "Direct Program Costs", percentage: 80, color: "#ea580c" },
+      { label: "Local Staff & Training", percentage: 12, color: "#fb923c" },
+      { label: "Operational Overhead", percentage: 8, color: "#fed7aa" },
+    ],
+    milestones: [
+      { id: 1, title: "Typhoon Melor — immediate response", date: "2025-12-02", description: "Emergency supplies deployed within 18 hours.", image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400&q=80", lat: 14.6, lng: 120.98, completed: true },
+      { id: 2, title: "Bihar flood recovery shelters", date: "2026-03-10", description: "500 transitional shelters completed.", image: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=400&q=80", lat: 25.6, lng: 85.1, completed: true },
+      { id: 3, title: "Psychosocial support programme", date: "2026-07-20", description: "Launching trauma counseling for 2,000 affected families.", image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&q=80", lat: 19.4, lng: -99.1, completed: false },
+    ],
+    transparency: { grade: "A+", evaluator: "GiveWell", evaluatorUrl: "https://givewell.org", lastAudit: "January 2026", score: 99 },
   },
   {
     id: 7,
@@ -327,6 +421,17 @@ Participants show measurable improvements in school attendance (up 18%), self-re
     location: "United States & Latin America",
     featured: false,
     verifiedBy: "YouthBuild International",
+    fundAllocation: [
+      { label: "Direct Program Costs", percentage: 74, color: "#0891b2" },
+      { label: "Local Staff & Training", percentage: 16, color: "#22d3ee" },
+      { label: "Operational Overhead", percentage: 10, color: "#a5f3fc" },
+    ],
+    milestones: [
+      { id: 1, title: "Community sports field #10 completed", date: "2025-11-20", description: "Transformed vacant lot into full-size soccer pitch.", image: "https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=400&q=80", lat: 19.4, lng: -99.1, completed: true },
+      { id: 2, title: "Coach training certification", date: "2026-02-01", description: "15 new volunteer coaches completed positive youth development.", image: "https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=400&q=80", lat: 34.0, lng: -118.2, completed: true },
+      { id: 3, title: "Regional youth league launch", date: "2026-09-15", description: "Inter-community tournament with 24 teams.", image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80", lat: 4.7, lng: -74.1, completed: false },
+    ],
+    transparency: { grade: "A+", evaluator: "GuideStar", evaluatorUrl: "https://guidestar.org", lastAudit: "April 2026", score: 93 },
   },
   {
     id: 8,
@@ -367,6 +472,17 @@ Participants report an average 40% increase in crop yields within two growing se
     location: "Sub-Saharan Africa & Central America",
     featured: false,
     verifiedBy: "GreenAfrica Foundation",
+    fundAllocation: [
+      { label: "Direct Program Costs", percentage: 76, color: "#ca8a04" },
+      { label: "Local Staff & Training", percentage: 14, color: "#facc15" },
+      { label: "Operational Overhead", percentage: 10, color: "#fef08a" },
+    ],
+    milestones: [
+      { id: 1, title: "Demonstration farm #15 established", date: "2025-10-15", description: "New 5-acre regenerative demo farm in Machakos.", image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400&q=80", lat: -1.5, lng: 37.3, completed: true },
+      { id: 2, title: "Seed bank partnership launched", date: "2026-01-30", description: "Preserving 200+ indigenous crop varieties.", image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=400&q=80", lat: 14.1, lng: -87.2, completed: true },
+      { id: 3, title: "Farmer-to-farmer exchange program", date: "2026-08-01", description: "Cross-border knowledge sharing between Kenya and Guatemala.", image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&q=80", lat: -0.02, lng: 37.9, completed: false },
+    ],
+    transparency: { grade: "A+", evaluator: "Charity Navigator", evaluatorUrl: "https://charitynavigator.org", lastAudit: "February 2026", score: 95 },
   },
 ]
 

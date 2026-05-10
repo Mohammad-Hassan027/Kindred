@@ -13,6 +13,9 @@ import {
 } from "@/lib/programs-data"
 import { ProgramDetailClient } from "./program-detail-client"
 import { ShareProgram } from "./share-program"
+import { ImpactBreakdown } from "./impact-breakdown"
+import { TrackProject } from "./track-project"
+import { TransparencyBadge } from "./transparency-badge"
 
 // ─── Static params for ISR / SSG ────────────────────────────────────────────
 
@@ -203,9 +206,15 @@ export default async function ProgramDetailPage({ params }: PageProps) {
                   &ldquo;{program.testimonial.quote}&rdquo;
                 </p>
                 <footer className="mt-4 text-sm font-medium text-stone-500 dark:text-stone-400">
-                  \u2014 {program.testimonial.author}, {program.testimonial.role}
+                  &mdash; {program.testimonial.author}, {program.testimonial.role}
                 </footer>
               </blockquote>
+
+              {/* Impact Breakdown (expandable) */}
+              <ImpactBreakdown allocations={program.fundAllocation} />
+
+              {/* Track This Project */}
+              <TrackProject programTitle={program.title} milestones={program.milestones} />
             </div>
 
             {/* ── Right: sidebar ─────────────────────────────────── */}
@@ -305,6 +314,12 @@ export default async function ProgramDetailPage({ params }: PageProps) {
                     </div>
                   </div>
                 </div>
+
+                {/* Transparency Grade Badge */}
+                <TransparencyBadge
+                  transparency={program.transparency}
+                  verifiedBy={program.verifiedBy}
+                />
 
                 {/* Recent Donors Placeholder */}
                 <div className="rounded-2xl border border-stone-200/80 bg-white p-5 shadow-sm dark:border-stone-800/80 dark:bg-stone-900">
