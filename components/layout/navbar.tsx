@@ -84,7 +84,7 @@ export function Navbar() {
               href="/donate"
               className={cn(
                 buttonVariants({ size: "sm" }),
-                "bg-emerald-600 text-white shadow-sm hover:bg-emerald-700 focus-visible:ring-emerald-500/50"
+                "bg-emerald-700 text-white shadow-sm hover:bg-emerald-800 focus-visible:ring-emerald-500/50"
               )}
             >
               Donate Now
@@ -152,7 +152,7 @@ export function Navbar() {
               href="/donate"
               className={cn(
                 buttonVariants({ size: "lg" }),
-                "w-full bg-emerald-600 text-white hover:bg-emerald-700 focus-visible:ring-emerald-500/50"
+                "w-full bg-emerald-700 text-white hover:bg-emerald-800 focus-visible:ring-emerald-500/50"
               )}
             >
               Donate Now

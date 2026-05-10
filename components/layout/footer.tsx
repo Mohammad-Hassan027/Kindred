@@ -54,7 +54,7 @@ export function Footer() {
                 Kindred
               </span>
             </Link>
-            <p className="max-w-xs text-sm leading-relaxed text-stone-500 dark:text-stone-400">
+            <p className="max-w-xs text-sm leading-relaxed text-stone-600 dark:text-stone-400">
               Building a kinder world through community-driven programs,
               compassion, and shared humanity.
             </p>
@@ -62,7 +62,7 @@ export function Footer() {
 
           {/* Quick links */}
           <nav aria-label="Footer navigation">
-            <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500">
+            <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-stone-600 dark:text-stone-400">
               Quick Links
             </h2>
             <ul className="flex flex-col gap-2" role="list">
@@ -81,7 +81,7 @@ export function Footer() {
 
           {/* Social & acknowledgement */}
           <div className="flex flex-col gap-4">
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500">
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-stone-600 dark:text-stone-400">
               Follow Us
             </h2>
             <ul className="flex gap-3" role="list" aria-label="Social media links">
@@ -92,7 +92,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Follow us on ${label}`}
-                    className="flex size-9 items-center justify-center rounded-full border border-stone-200 text-stone-500 transition-colors hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 dark:border-stone-700 dark:text-stone-400 dark:hover:border-emerald-600 dark:hover:bg-emerald-950/30 dark:hover:text-emerald-400"
+                    className="flex size-9 items-center justify-center rounded-full border border-stone-300 text-stone-600 transition-colors hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 dark:border-stone-700 dark:text-stone-400 dark:hover:border-emerald-600 dark:hover:bg-emerald-950/30 dark:hover:text-emerald-400"
                   >
                     <Icon className="size-4" aria-hidden="true" />
                   </a>
@@ -100,9 +100,9 @@ export function Footer() {
               ))}
             </ul>
 
-            <p className="mt-2 text-xs text-stone-400 dark:text-stone-600">
+            <p className="mt-2 text-xs text-stone-600 dark:text-stone-400">
               A project supported by{" "}
-              <span className="font-semibold text-stone-500 dark:text-stone-400">
+              <span className="font-semibold text-stone-700 dark:text-stone-300">
                 Crowdera Foundation
               </span>
               {" "}as part of the Social Impact Hackathon.
@@ -112,10 +112,10 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-stone-200 pt-8 sm:flex-row dark:border-stone-800">
-          <p className="text-xs text-stone-400 dark:text-stone-600">
+          <p className="text-xs text-stone-600 dark:text-stone-400">
             © 2026 Kindred. All rights reserved.
           </p>
-          <p className="text-xs text-stone-400 dark:text-stone-600">
+          <p className="text-xs text-stone-600 dark:text-stone-400">
             Made with{" "}
             <span aria-label="love" role="img">
               ♥

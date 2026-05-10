@@ -72,7 +72,7 @@ export function Hero() {
             id="hero-donate-cta"
             className={cn(
               buttonVariants({ size: "lg" }),
-              "min-w-[180px] bg-emerald-600 px-8 py-3 text-base font-semibold text-white shadow-lg shadow-emerald-900/30 transition-all duration-300 hover:bg-emerald-500 hover:shadow-xl hover:shadow-emerald-900/40 hover:-translate-y-0.5 focus-visible:ring-emerald-400/50",
+              "min-w-[180px] bg-emerald-700 px-8 py-3 text-base font-semibold text-white shadow-lg shadow-emerald-900/30 transition-all duration-300 hover:bg-emerald-800 hover:shadow-xl hover:shadow-emerald-900/40 hover:-translate-y-0.5 focus-visible:ring-emerald-400/50",
             )}
           >
             Donate Now

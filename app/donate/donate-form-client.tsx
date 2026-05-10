@@ -107,7 +107,7 @@ export function DonateFormClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            <a href="/" className={cn(buttonVariants({ size: "lg" }), "mt-8 bg-emerald-600 text-white hover:bg-emerald-500")}>
+            <a href="/" className={cn(buttonVariants({ size: "lg" }), "mt-8 bg-emerald-700 text-white hover:bg-emerald-800")}>
               Back to Home
             </a>
           </motion.div>
@@ -224,7 +224,7 @@ export function DonateFormClient() {
 
             {/* ── 5. Submit ─────────────────────────────────────── */}
             <div>
-              <button type="submit" className={cn(buttonVariants({ size: "lg" }), "w-full bg-emerald-600 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-900/20 transition-all hover:bg-emerald-500 hover:shadow-xl hover:-translate-y-0.5 focus-visible:ring-emerald-400/50 sm:text-lg")}>
+              <button type="submit" className={cn(buttonVariants({ size: "lg" }), "w-full bg-emerald-700 py-3.5 text-base font-semibold text-white shadow-lg shadow-emerald-900/20 transition-all hover:bg-emerald-800 hover:shadow-xl hover:-translate-y-0.5 focus-visible:ring-emerald-400/50 sm:text-lg")}>
                 {donationType === "monthly" ? "Start Monthly Donation" : "Donate"} {amount > 0 ? `— $${amount.toLocaleString()}` : "Now"}
                 {donationType === "monthly" && amount > 0 ? "/mo" : ""}
               </button>

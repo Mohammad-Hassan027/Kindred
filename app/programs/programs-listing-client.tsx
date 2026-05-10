@@ -192,7 +192,7 @@ export function ProgramsListingClient({
             className={cn(
               "rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-200",
               activeCategory === "all"
-                ? "bg-emerald-600 text-white shadow-sm"
+                ? "bg-emerald-700 text-white shadow-sm"
                 : "bg-stone-100 text-stone-600 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700",
             )}
             aria-pressed={activeCategory === "all"}
@@ -209,7 +209,7 @@ export function ProgramsListingClient({
                 className={cn(
                   "rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-200",
                   activeCategory === cat
-                    ? "bg-emerald-600 text-white shadow-sm"
+                    ? "bg-emerald-700 text-white shadow-sm"
                     : "bg-stone-100 text-stone-600 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700",
                 )}
                 aria-pressed={activeCategory === cat}

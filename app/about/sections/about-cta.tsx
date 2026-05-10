@@ -65,7 +65,7 @@ export function AboutCTA() {
                 id="about-cta-donate"
                 className={cn(
                   buttonVariants({ size: "lg" }),
-                  "min-w-[180px] bg-white px-8 py-3 text-base font-semibold text-emerald-700 shadow-lg transition-all duration-300 hover:bg-emerald-50 hover:shadow-xl hover:-translate-y-0.5",
+                  "min-w-[180px] bg-white px-8 py-3 text-base font-semibold text-emerald-800 shadow-lg transition-all duration-300 hover:bg-emerald-50 hover:shadow-xl hover:-translate-y-0.5",
                 )}
               >
                 Donate Now

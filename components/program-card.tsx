@@ -147,7 +147,7 @@ export function ProgramCard({ program, variant = "compact" }: ProgramCardProps) 
               {percentage}% of {formatCurrency(program.goal)}
             </span>
           </div>
-          <Progress value={percentage} />
+          <Progress value={percentage} aria-label={`Funding progress for ${program.title}`} />
         </div>
 
         {/* CTA */}
@@ -158,7 +158,7 @@ export function ProgramCard({ program, variant = "compact" }: ProgramCardProps) 
             "mt-5 w-full justify-center border-stone-200 font-medium transition-colors hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-700 dark:border-stone-700 dark:hover:border-emerald-600 dark:hover:bg-emerald-950/30 dark:hover:text-emerald-400",
           )}
         >
-          Learn More
+          <span>Learn More <span className="sr-only">about {program.title}</span></span>
           <svg
             className="ml-1 size-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
             fill="none"

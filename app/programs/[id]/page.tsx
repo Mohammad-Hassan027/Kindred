@@ -227,7 +227,7 @@ export default async function ProgramDetailPage({ params }: PageProps) {
                       </span>
                     </div>
                     <div className="mt-3">
-                      <Progress value={percentage} />
+                      <Progress value={percentage} aria-label={`Funding progress for ${program.title}`} />
                     </div>
                     <p className="mt-2 text-right text-sm font-semibold text-emerald-600 dark:text-emerald-400">
                       {percentage}% funded
@@ -260,7 +260,7 @@ export default async function ProgramDetailPage({ params }: PageProps) {
                     id="detail-donate-cta"
                     className={cn(
                       buttonVariants({ size: "lg" }),
-                      "mt-6 w-full bg-emerald-600 text-base font-semibold text-white shadow-md shadow-emerald-900/20 transition-all hover:bg-emerald-500 hover:shadow-lg hover:shadow-emerald-900/30 hover:-translate-y-0.5 focus-visible:ring-emerald-400/50",
+                      "mt-6 w-full bg-emerald-700 text-base font-semibold text-white shadow-md shadow-emerald-900/20 transition-all hover:bg-emerald-800 hover:shadow-lg hover:shadow-emerald-900/30 hover:-translate-y-0.5 focus-visible:ring-emerald-400/50",
                     )}
                   >
                     Donate to This Cause
