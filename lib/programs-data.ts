@@ -79,7 +79,8 @@ Since inception, this program has helped over 3,200 children stay in school and 
       { stat: "12", label: "Countries Reached" },
     ],
     testimonial: {
-      quote: "Before this program, I had to walk two hours to the nearest school. Now there\u2019s a school in our village, and I\u2019m the first girl in my family to learn to read.",
+      quote:
+        "Before this program, I had to walk two hours to the nearest school. Now there\u2019s a school in our village, and I\u2019m the first girl in my family to learn to read.",
       author: "Amina K.",
       role: "Student, age 12",
     },
@@ -99,11 +100,11 @@ The Clean Water Initiative partners with local engineers and community leaders t
 
 Each well we build serves an average of 500 people and reduces waterborne illness by up to 80% in the surrounding area. We also integrate hygiene education programs to maximize health impact.`,
     image:
-      "https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=800&q=80&auto=format&fit=crop",
+      "https://images.pexels.com/photos/14325728/pexels-photo-14325728.jpeg",
     gallery: [
       "https://images.unsplash.com/photo-1538300342682-cf57afb97285?w=800&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=800&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?w=800&q=80&auto=format&fit=crop",
+      "https://images.pexels.com/photos/28101466/pexels-photo-28101466.jpeg",
+      "https://images.pexels.com/photos/3079978/pexels-photo-3079978.jpeg",
     ],
     category: "Water & Sanitation",
     urgency: "critical",
@@ -118,7 +119,8 @@ Each well we build serves an average of 500 people and reduces waterborne illnes
       { stat: "8", label: "Regions Covered" },
     ],
     testimonial: {
-      quote: "Our children used to get sick every rainy season from the river water. Since the well was built, we haven\u2019t had a single case of cholera in our village.",
+      quote:
+        "Our children used to get sick every rainy season from the river water. Since the well was built, we haven\u2019t had a single case of cholera in our village.",
       author: "Grace M.",
       role: "Village Elder, Makueni County",
     },
@@ -157,7 +159,8 @@ Each clinic serves 200–400 patients per month and operates on a sustainable mo
       { stat: "95%", label: "Vaccination Coverage" },
     ],
     testimonial: {
-      quote: "The mobile clinic saved my daughter\u2019s life. She had a high fever for three days, and the nearest hospital was a full day\u2019s travel. The clinic arrived just in time.",
+      quote:
+        "The mobile clinic saved my daughter\u2019s life. She had a high fever for three days, and the nearest hospital was a full day\u2019s travel. The clinic arrived just in time.",
       author: "Maria S.",
       role: "Mother of three, rural Guatemala",
     },
@@ -196,7 +199,8 @@ Every tree planted sequesters an average of 48 lbs of CO₂ per year. Our goal i
       { stat: "340", label: "Families Supported" },
     ],
     testimonial: {
-      quote: "The forest was gone when I was a boy. Now my grandchildren play under the trees we planted together. The birds have come back, and so has our livelihood.",
+      quote:
+        "The forest was gone when I was a boy. Now my grandchildren play under the trees we planted together. The birds have come back, and so has our livelihood.",
       author: "Carlos R.",
       role: "Community Farmer, Amazonia",
     },
@@ -235,7 +239,8 @@ Over 85% of our micro-loan recipients successfully repay their loans within 18 m
       { stat: "85%", label: "Loan Repayment Rate" },
     ],
     testimonial: {
-      quote: "With my micro-loan, I started a tailoring business. Now I employ three other women from my village. My daughters will never have to depend on anyone.",
+      quote:
+        "With my micro-loan, I started a tailoring business. Now I employ three other women from my village. My daughters will never have to depend on anyone.",
       author: "Fatima N.",
       role: "Entrepreneur, Dhaka",
     },
@@ -274,7 +279,8 @@ Beyond immediate relief, we fund medium-term recovery — rebuilding schools, re
       { stat: "5,000+", label: "Shelters Provided" },
     ],
     testimonial: {
-      quote: "We lost everything in the flood. Within 24 hours, relief teams were here with food, water, and shelter. They gave us the strength to rebuild.",
+      quote:
+        "We lost everything in the flood. Within 24 hours, relief teams were here with food, water, and shelter. They gave us the strength to rebuild.",
       author: "Raj P.",
       role: "Flood survivor, Bihar",
     },
@@ -313,7 +319,8 @@ Participants show measurable improvements in school attendance (up 18%), self-re
       { stat: "12", label: "Fields Built" },
     ],
     testimonial: {
-      quote: "Soccer practice kept me off the streets. Coach Martinez believed in me when nobody else did. Now I'm mentoring younger kids in the same program.",
+      quote:
+        "Soccer practice kept me off the streets. Coach Martinez believed in me when nobody else did. Now I'm mentoring younger kids in the same program.",
       author: "Diego L.",
       role: "Youth mentor, age 17",
     },
@@ -352,7 +359,8 @@ Participants report an average 40% increase in crop yields within two growing se
       { stat: "6,500", label: "Acres Improved" },
     ],
     testimonial: {
-      quote: "I used to barely grow enough to feed my family. After learning composting and crop rotation, my harvest doubled and I now sell surplus at the market.",
+      quote:
+        "I used to barely grow enough to feed my family. After learning composting and crop rotation, my harvest doubled and I now sell surplus at the market.",
       author: "Samuel O.",
       role: "Smallholder farmer, Kenya",
     },
