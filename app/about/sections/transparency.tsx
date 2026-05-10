@@ -1,7 +1,9 @@
 "use client"
 
 import * as React from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import { cn } from "@/lib/utils"
 
 interface FundSlice {
   label: string
@@ -51,6 +53,8 @@ function DonutChart() {
   const cy = size / 2
 
   let cumulativeAngle = 0
+  const [hoveredSlice, setHoveredSlice] = React.useState<FundSlice | null>(null)
+  const activeSlice = hoveredSlice || fundBreakdown[0]
 
   return (
     <div ref={ref} className="flex flex-col items-center">
@@ -77,35 +81,56 @@ function DonutChart() {
               key={slice.label}
               d={describeArc(cx, cy, radius, startAngle, endAngle)}
               fill="none"
-              className="transition-all duration-1000 ease-out"
-              stroke={slice.color}
+              className={cn(
+                "cursor-pointer transition-all duration-300 ease-out",
+                "stroke-[var(--color-light)] dark:stroke-[var(--color-dark)]",
+                hoveredSlice && hoveredSlice.label !== slice.label ? "opacity-40" : "opacity-100"
+              )}
               strokeWidth={stroke}
               strokeLinecap="round"
+              onMouseEnter={() => setHoveredSlice(slice)}
+              onMouseLeave={() => setHoveredSlice(null)}
               style={{
-                opacity: isVisible ? 1 : 0,
+                "--color-light": slice.color,
+                "--color-dark": slice.darkColor,
+                opacity: isVisible ? undefined : 0,
                 strokeDasharray: isVisible ? "none" : "0 1000",
-                transitionDelay: `${i * 200}ms`,
-              }}
+                transitionDelay: isVisible && !hoveredSlice ? `${i * 200}ms` : "0ms",
+              } as React.CSSProperties}
             />
           )
         })}
-        {/* Center text */}
-        <text
-          x={cx}
-          y={cy - 6}
-          textAnchor="middle"
-          className="fill-stone-900 font-heading text-2xl font-bold dark:fill-stone-50"
-        >
-          85%
-        </text>
-        <text
-          x={cx}
-          y={cy + 16}
-          textAnchor="middle"
-          className="fill-stone-500 text-xs dark:fill-stone-400"
-        >
-          to programs
-        </text>
+        {/* Center text using Framer Motion */}
+        <AnimatePresence mode="wait">
+          <motion.text
+            key={activeSlice.percent + "-percent"}
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -5 }}
+            transition={{ duration: 0.2 }}
+            x={cx}
+            y={cy - 6}
+            textAnchor="middle"
+            className="fill-stone-900 font-heading text-2xl font-bold dark:fill-stone-50"
+          >
+            {activeSlice.percent}%
+          </motion.text>
+        </AnimatePresence>
+        <AnimatePresence mode="wait">
+          <motion.text
+            key={activeSlice.label + "-label"}
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -5 }}
+            transition={{ duration: 0.2 }}
+            x={cx}
+            y={cy + 16}
+            textAnchor="middle"
+            className="fill-stone-500 text-xs dark:fill-stone-400"
+          >
+            {activeSlice.label}
+          </motion.text>
+        </AnimatePresence>
       </svg>
 
       {/* Legend */}
@@ -229,11 +254,17 @@ export function TransparencySection() {
 
             {/* Trust badges */}
             <div className="mt-8 flex flex-wrap gap-3">
-              {["Audited Annually", "Public Reports", "4-Star Rated"].map(
+              {[
+                { name: "Audited Annually", link: "#report-2025", desc: "Our financials are independently audited every year to ensure compliance and accuracy." },
+                { name: "Public Reports", link: "#transparency-dashboard", desc: "We maintain open-source impact reports detailing the direct results of all donations." },
+                { name: "4-Star Rated", link: "#charity-navigator", desc: "Awarded the highest 4-star rating by independent charity evaluators for financial health." }
+              ].map(
                 (badge) => (
-                  <span
-                    key={badge}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50/80 px-3 py-1 text-xs font-medium text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-400"
+                  <a
+                    key={badge.name}
+                    href={badge.link}
+                    title={badge.desc}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50/80 px-3 py-1 text-xs font-medium text-emerald-700 transition-colors hover:border-emerald-300 hover:bg-emerald-100 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-400 dark:hover:border-emerald-700 dark:hover:bg-emerald-900/60"
                   >
                     <svg
                       className="size-3.5"
@@ -247,8 +278,11 @@ export function TransparencySection() {
                         clipRule="evenodd"
                       />
                     </svg>
-                    {badge}
-                  </span>
+                    {badge.name}
+                    <svg className="ml-0.5 size-3 opacity-60" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                  </a>
                 ),
               )}
             </div>
