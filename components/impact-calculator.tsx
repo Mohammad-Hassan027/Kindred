@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { cn } from "@/lib/utils"
+import type { ProgramCategory } from "@/lib/programs-data"
 
 // ─── Impact mapping ────────────────────────────────────────────────────────
 // Each impact item defines a cost-per-unit and a human-readable template.
@@ -76,16 +77,39 @@ interface ImpactCalculatorProps {
   amount: number
   isMonthly: boolean
   className?: string
+  category?: ProgramCategory
 }
 
 export function ImpactCalculator({
   amount,
   isMonthly,
   className,
+  category,
 }: ImpactCalculatorProps) {
   const effectiveAmount = amount || 0
   const annualAmount = isMonthly ? effectiveAmount * 12 : effectiveAmount
   const displayAmount = isMonthly ? effectiveAmount : effectiveAmount
+
+  const prioritizedItems = React.useMemo(() => {
+    if (!category) return impactItems
+
+    return [...impactItems].sort((a, b) => {
+      // Helper to check if an item is prioritized for a category
+      const isPrioritized = (item: ImpactItem, cat: ProgramCategory) => {
+        if (cat === "Education" && (item.unit === "days of education" || item.unit === "school supplies")) return true
+        if (cat === "Healthcare" && (item.unit === "medical checkups" || item.unit === "medicine")) return true
+        if (cat === "Environment" && (item.unit === "trees planted" || item.unit === "liters of clean water")) return true
+        return false
+      }
+
+      const aPriority = isPrioritized(a, category)
+      const bPriority = isPrioritized(b, category)
+
+      if (aPriority && !bPriority) return -1
+      if (!aPriority && bPriority) return 1
+      return 0
+    })
+  }, [category])
 
   if (effectiveAmount <= 0) {
     return (
@@ -133,7 +157,7 @@ export function ImpactCalculator({
 
       {/* Impact items */}
       <div className="space-y-3">
-        {impactItems.map((item) => {
+        {prioritizedItems.map((item) => {
           const count = Math.floor(displayAmount / item.costPerUnit)
           if (count <= 0) return null
 

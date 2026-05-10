@@ -17,6 +17,12 @@ export interface ProgramImpact {
   label: string
 }
 
+export interface ProgramTestimonial {
+  quote: string
+  author: string
+  role: string
+}
+
 export interface Program {
   id: number
   title: string
@@ -32,6 +38,7 @@ export interface Program {
   donors: number
   daysLeft: number
   impact: ProgramImpact[]
+  testimonial: ProgramTestimonial
   location: string
   featured: boolean
 }
@@ -69,6 +76,11 @@ Since inception, this program has helped over 3,200 children stay in school and 
       { stat: "85", label: "Schools Supported" },
       { stat: "12", label: "Countries Reached" },
     ],
+    testimonial: {
+      quote: "Before this program, I had to walk two hours to the nearest school. Now there\u2019s a school in our village, and I\u2019m the first girl in my family to learn to read.",
+      author: "Amina K.",
+      role: "Student, age 12",
+    },
     location: "Sub-Saharan Africa & South Asia",
     featured: true,
   },
@@ -102,6 +114,11 @@ Each well we build serves an average of 500 people and reduces waterborne illnes
       { stat: "80%", label: "Disease Reduction" },
       { stat: "8", label: "Regions Covered" },
     ],
+    testimonial: {
+      quote: "Our children used to get sick every rainy season from the river water. Since the well was built, we haven\u2019t had a single case of cholera in our village.",
+      author: "Grace M.",
+      role: "Village Elder, Makueni County",
+    },
     location: "East Africa & Southeast Asia",
     featured: true,
   },
@@ -135,6 +152,11 @@ Each clinic serves 200–400 patients per month and operates on a sustainable mo
       { stat: "120", label: "Health Workers Trained" },
       { stat: "95%", label: "Vaccination Coverage" },
     ],
+    testimonial: {
+      quote: "The mobile clinic saved my daughter\u2019s life. She had a high fever for three days, and the nearest hospital was a full day\u2019s travel. The clinic arrived just in time.",
+      author: "Maria S.",
+      role: "Mother of three, rural Guatemala",
+    },
     location: "Central America & West Africa",
     featured: true,
   },
@@ -168,6 +190,11 @@ Every tree planted sequesters an average of 48 lbs of CO₂ per year. Our goal i
       { stat: "6M lbs", label: "CO₂ Offset/Year" },
       { stat: "340", label: "Families Supported" },
     ],
+    testimonial: {
+      quote: "The forest was gone when I was a boy. Now my grandchildren play under the trees we planted together. The birds have come back, and so has our livelihood.",
+      author: "Carlos R.",
+      role: "Community Farmer, Amazonia",
+    },
     location: "Amazon Basin & Southeast Asia",
     featured: true,
   },
@@ -201,6 +228,11 @@ Over 85% of our micro-loan recipients successfully repay their loans within 18 m
       { stat: "3×", label: "Avg Income Increase" },
       { stat: "85%", label: "Loan Repayment Rate" },
     ],
+    testimonial: {
+      quote: "With my micro-loan, I started a tailoring business. Now I employ three other women from my village. My daughters will never have to depend on anyone.",
+      author: "Fatima N.",
+      role: "Entrepreneur, Dhaka",
+    },
     location: "South Asia & East Africa",
     featured: false,
   },
@@ -234,6 +266,11 @@ Beyond immediate relief, we fund medium-term recovery — rebuilding schools, re
       { stat: "24hrs", label: "Avg Response Time" },
       { stat: "5,000+", label: "Shelters Provided" },
     ],
+    testimonial: {
+      quote: "We lost everything in the flood. Within 24 hours, relief teams were here with food, water, and shelter. They gave us the strength to rebuild.",
+      author: "Raj P.",
+      role: "Flood survivor, Bihar",
+    },
     location: "Global",
     featured: false,
   },
@@ -267,6 +304,11 @@ Participants show measurable improvements in school attendance (up 18%), self-re
       { stat: "45", label: "Coaches Trained" },
       { stat: "12", label: "Fields Built" },
     ],
+    testimonial: {
+      quote: "Soccer practice kept me off the streets. Coach Martinez believed in me when nobody else did. Now I'm mentoring younger kids in the same program.",
+      author: "Diego L.",
+      role: "Youth mentor, age 17",
+    },
     location: "United States & Latin America",
     featured: false,
   },
@@ -300,6 +342,11 @@ Participants report an average 40% increase in crop yields within two growing se
       { stat: "18", label: "Demo Farms" },
       { stat: "6,500", label: "Acres Improved" },
     ],
+    testimonial: {
+      quote: "I used to barely grow enough to feed my family. After learning composting and crop rotation, my harvest doubled and I now sell surplus at the market.",
+      author: "Samuel O.",
+      role: "Smallholder farmer, Kenya",
+    },
     location: "Sub-Saharan Africa & Central America",
     featured: false,
   },

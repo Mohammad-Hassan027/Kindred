@@ -204,7 +204,7 @@ export function DonateFormClient() {
             <div className="sticky top-20 space-y-6">
 
               {/* Impact Calculator */}
-              <ImpactCalculator amount={amount} isMonthly={donationType === "monthly"} />
+              <ImpactCalculator amount={amount} isMonthly={donationType === "monthly"} category={linkedProgram?.category} />
 
               {/* Trust badges */}
               <div className="rounded-2xl border border-stone-200/80 bg-white p-5 dark:border-stone-800/80 dark:bg-stone-900">

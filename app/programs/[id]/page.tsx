@@ -188,7 +188,7 @@ export default async function ProgramDetailPage({ params }: PageProps) {
                 </div>
               </div>
 
-              {/* Testimonial placeholder */}
+              {/* Dynamic testimonial */}
               <blockquote className="mt-12 rounded-2xl border border-emerald-200/60 bg-emerald-50/50 p-6 dark:border-emerald-900/40 dark:bg-emerald-950/20">
                 <svg
                   className="mb-3 size-8 text-emerald-300 dark:text-emerald-700"
@@ -199,12 +199,10 @@ export default async function ProgramDetailPage({ params }: PageProps) {
                   <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
                 </svg>
                 <p className="text-base leading-relaxed text-stone-700 italic dark:text-stone-300">
-                  &ldquo;This program changed our entire community. The children now
-                  have hope, the families have support, and we finally see a path
-                  forward. We are incredibly grateful.&rdquo;
+                  &ldquo;{program.testimonial.quote}&rdquo;
                 </p>
                 <footer className="mt-4 text-sm font-medium text-stone-500 dark:text-stone-400">
-                  — Community Leader, {program.location}
+                  \u2014 {program.testimonial.author}, {program.testimonial.role}
                 </footer>
               </blockquote>
             </div>
@@ -305,6 +303,42 @@ export default async function ProgramDetailPage({ params }: PageProps) {
                       </p>
                     </div>
                   </div>
+                </div>
+
+                {/* Recent Donors Placeholder */}
+                <div className="rounded-2xl border border-stone-200/80 bg-white p-5 shadow-sm dark:border-stone-800/80 dark:bg-stone-900">
+                  <h3 className="font-heading text-sm font-semibold text-stone-900 dark:text-stone-50">
+                    Recent Donors
+                  </h3>
+                  <div className="mt-4 space-y-3">
+                    {[
+                      { name: "Sarah M.", amount: 100, time: "2 hours ago" },
+                      { name: "David K.", amount: 50, time: "5 hours ago" },
+                      { name: "Anonymous", amount: 250, time: "1 day ago" },
+                    ].map((donor, i) => (
+                      <div key={i} className="flex items-center justify-between border-b border-stone-100 pb-3 last:border-0 last:pb-0 dark:border-stone-800">
+                        <div className="flex items-center gap-3">
+                          <div className="flex size-8 items-center justify-center rounded-full bg-stone-100 text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-400">
+                            {donor.name.charAt(0)}
+                          </div>
+                          <div>
+                            <p className="text-sm font-medium text-stone-700 dark:text-stone-300">
+                              {donor.name}
+                            </p>
+                            <p className="text-xs text-stone-400 dark:text-stone-500">
+                              {donor.time}
+                            </p>
+                          </div>
+                        </div>
+                        <span className="text-sm font-semibold text-stone-900 dark:text-stone-50">
+                          ${donor.amount}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-3 text-center text-xs text-stone-400 dark:text-stone-500">
+                    Join {program.donors} others in supporting this cause.
+                  </p>
                 </div>
 
                 {/* Share */}
