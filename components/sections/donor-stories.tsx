@@ -7,7 +7,7 @@ const donors = [
   {
     name: "Sarah Mitchell",
     location: "Portland, OR",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&q=80&auto=format&fit=crop&crop=face",
+    image: "https://images.unsplash.com/photo-1616776005756-4dca36124bf9?w=200&q=80&auto=format&fit=crop&crop=face",
     quote:
       "I funded a well in Turkana County through Kindred. Six months later, I received a photo of 600 people lining up for clean water for the first time. That image changed my life.",
     impact: "Funded 1 well serving 600 people",
@@ -84,11 +84,10 @@ export function DonorStories() {
           {donors.map((donor, i) => (
             <div
               key={donor.name}
-              className={`group relative flex flex-col rounded-2xl border border-stone-200/80 bg-white p-6 shadow-sm transition-all duration-700 ease-out hover:shadow-lg dark:border-stone-800/80 dark:bg-stone-900 dark:hover:border-stone-700 ${
-                isVisible
+              className={`group relative flex flex-col rounded-2xl border border-stone-200/80 bg-white p-6 shadow-sm transition-all duration-700 ease-out hover:shadow-lg dark:border-stone-800/80 dark:bg-stone-900 dark:hover:border-stone-700 ${isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-10 opacity-0"
-              }`}
+                }`}
               style={{ transitionDelay: `${i * 150}ms` }}
             >
               {/* Quote */}
