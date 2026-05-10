@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { useRouter, usePathname, useSearchParams } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { ProgramCard } from "@/components/program-card"
 import type { Program, ProgramCategory, ProgramUrgency } from "@/lib/programs-data"
@@ -17,20 +18,50 @@ const urgencyOptions: { value: ProgramUrgency | "all"; label: string }[] = [
   { value: "normal", label: "Normal" },
 ]
 
+const sortOptions = [
+  { value: "newest", label: "Newly Added" },
+  { value: "urgent", label: "Most Urgent" },
+  { value: "goal", label: "Funding Goal (Low to High)" },
+]
+
 export function ProgramsListingClient({
   programs,
   categories,
 }: ProgramsListingClientProps) {
-  const [search, setSearch] = React.useState("")
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  const [search, setSearch] = React.useState(searchParams.get("search") || "")
   const [activeCategory, setActiveCategory] = React.useState<
     ProgramCategory | "all"
-  >("all")
+  >((searchParams.get("category") as ProgramCategory | null) || "all")
   const [activeUrgency, setActiveUrgency] = React.useState<
     ProgramUrgency | "all"
-  >("all")
+  >((searchParams.get("urgency") as ProgramUrgency | null) || "all")
+  const [activeSort, setActiveSort] = React.useState(searchParams.get("sort") || "newest")
+  
+  const [isFiltering, setIsFiltering] = React.useState(false)
+
+  // Sync state to URL and trigger artificial skeleton load
+  React.useEffect(() => {
+    setIsFiltering(true)
+    const timer = setTimeout(() => setIsFiltering(false), 400) // artificial delay for perceived loading
+
+    const params = new URLSearchParams()
+    if (search) params.set("search", search)
+    if (activeCategory !== "all") params.set("category", activeCategory)
+    if (activeUrgency !== "all") params.set("urgency", activeUrgency)
+    if (activeSort !== "newest") params.set("sort", activeSort)
+
+    const query = params.toString()
+    router.replace(`${pathname}${query ? `?${query}` : ""}`, { scroll: false })
+
+    return () => clearTimeout(timer)
+  }, [search, activeCategory, activeUrgency, activeSort, pathname, router])
 
   const filtered = React.useMemo(() => {
-    return programs.filter((p) => {
+    const result = programs.filter((p) => {
       const matchesSearch =
         search.trim() === "" ||
         p.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -45,7 +76,19 @@ export function ProgramsListingClient({
 
       return matchesSearch && matchesCategory && matchesUrgency
     })
-  }, [programs, search, activeCategory, activeUrgency])
+
+    return result.sort((a, b) => {
+      if (activeSort === "urgent") {
+        const uMap = { critical: 3, high: 2, normal: 1 }
+        return uMap[b.urgency] - uMap[a.urgency]
+      } else if (activeSort === "goal") {
+        return a.goal - b.goal
+      } else {
+        // newest
+        return b.id - a.id
+      }
+    })
+  }, [programs, search, activeCategory, activeUrgency, activeSort])
 
   return (
     <section
@@ -85,30 +128,55 @@ export function ProgramsListingClient({
             />
           </div>
 
-          {/* Urgency dropdown */}
-          <div className="flex items-center gap-2">
-            <label
-              htmlFor="urgency-filter"
-              className="text-xs font-medium text-stone-500 dark:text-stone-400"
-            >
-              Urgency:
-            </label>
-            <select
-              id="urgency-filter"
-              value={activeUrgency}
-              onChange={(e) =>
-                setActiveUrgency(
-                  e.target.value as ProgramUrgency | "all",
-                )
-              }
-              className="h-9 rounded-lg border border-stone-200 bg-white px-3 text-sm text-stone-700 outline-none transition-colors focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300 dark:focus:border-emerald-500 dark:focus:ring-emerald-500/20"
-            >
-              {urgencyOptions.map((opt) => (
-                <option key={opt.value} value={opt.value}>
-                  {opt.label}
-                </option>
-              ))}
-            </select>
+          {/* Filters dropdowns */}
+          <div className="flex flex-wrap items-center gap-4">
+            {/* Urgency dropdown */}
+            <div className="flex items-center gap-2">
+              <label
+                htmlFor="urgency-filter"
+                className="text-xs font-medium text-stone-500 dark:text-stone-400"
+              >
+                Urgency:
+              </label>
+              <select
+                id="urgency-filter"
+                value={activeUrgency}
+                onChange={(e) =>
+                  setActiveUrgency(
+                    e.target.value as ProgramUrgency | "all",
+                  )
+                }
+                className="h-9 rounded-lg border border-stone-200 bg-white px-3 text-sm text-stone-700 outline-none transition-colors focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300 dark:focus:border-emerald-500 dark:focus:ring-emerald-500/20"
+              >
+                {urgencyOptions.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Sort dropdown */}
+            <div className="flex items-center gap-2">
+              <label
+                htmlFor="sort-filter"
+                className="text-xs font-medium text-stone-500 dark:text-stone-400"
+              >
+                Sort By:
+              </label>
+              <select
+                id="sort-filter"
+                value={activeSort}
+                onChange={(e) => setActiveSort(e.target.value)}
+                className="h-9 rounded-lg border border-stone-200 bg-white px-3 text-sm text-stone-700 outline-none transition-colors focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300 dark:focus:border-emerald-500 dark:focus:ring-emerald-500/20"
+              >
+                {sortOptions.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
         </div>
 
@@ -184,9 +252,13 @@ export function ProgramsListingClient({
         {/* ── Grid ────────────────────────────────────────────────── */}
         {filtered.length > 0 ? (
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((program) => (
-              <ProgramCard key={program.id} program={program} />
-            ))}
+            {isFiltering
+              ? Array.from({ length: Math.min(filtered.length, 6) }).map((_, i) => (
+                  <ProgramCardSkeleton key={`skel-${i}`} />
+                ))
+              : filtered.map((program) => (
+                  <ProgramCard key={program.id} program={program} />
+                ))}
           </div>
         ) : (
           <div className="mt-16 flex flex-col items-center gap-3 py-12 text-center">
@@ -219,6 +291,7 @@ export function ProgramsListingClient({
                 setSearch("")
                 setActiveCategory("all")
                 setActiveUrgency("all")
+                setActiveSort("newest")
               }}
               className="mt-2 text-sm font-medium text-emerald-600 transition-colors hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
             >
@@ -228,5 +301,31 @@ export function ProgramsListingClient({
         )}
       </div>
     </section>
+  )
+}
+
+function ProgramCardSkeleton() {
+  return (
+    <div className="flex flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-sm dark:border-stone-800/80 dark:bg-stone-900 animate-pulse">
+      <div className="aspect-[4/3] w-full bg-stone-200 dark:bg-stone-800" />
+      <div className="flex flex-1 flex-col p-5">
+        <div className="h-6 w-3/4 rounded bg-stone-200 dark:bg-stone-800" />
+        <div className="mt-2 h-4 w-1/2 rounded bg-stone-200 dark:bg-stone-800" />
+        <div className="mt-4 space-y-2 flex-1">
+          <div className="h-4 w-full rounded bg-stone-200 dark:bg-stone-800" />
+          <div className="h-4 w-full rounded bg-stone-200 dark:bg-stone-800" />
+          <div className="h-4 w-2/3 rounded bg-stone-200 dark:bg-stone-800" />
+        </div>
+        <div className="mt-auto pt-4">
+          <div className="mb-4 flex gap-4">
+            <div className="h-3 w-16 rounded bg-stone-200 dark:bg-stone-800" />
+            <div className="h-3 w-16 rounded bg-stone-200 dark:bg-stone-800" />
+          </div>
+          <div className="mb-2 h-4 w-full rounded bg-stone-200 dark:bg-stone-800" />
+          <div className="h-2 w-full rounded-full bg-stone-200 dark:bg-stone-800" />
+          <div className="mt-5 h-9 w-full rounded-md bg-stone-200 dark:bg-stone-800" />
+        </div>
+      </div>
+    </div>
   )
 }

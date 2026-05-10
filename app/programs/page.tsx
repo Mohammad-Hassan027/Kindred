@@ -1,3 +1,4 @@
+import * as React from "react"
 import type { Metadata } from "next"
 import { programs, categories } from "@/lib/programs-data"
 import { ProgramsListingClient } from "./programs-listing-client"
@@ -41,10 +42,12 @@ export default function ProgramsPage() {
       </section>
 
       {/* Client-side filtering / search / grid */}
-      <ProgramsListingClient
-        programs={programs}
-        categories={categories}
-      />
+      <React.Suspense fallback={<div className="py-20 text-center text-sm text-stone-500">Loading programs...</div>}>
+        <ProgramsListingClient
+          programs={programs}
+          categories={categories}
+        />
+      </React.Suspense>
     </>
   )
 }
