@@ -65,7 +65,7 @@ export function Footer() {
               <h2 className="font-serif text-2xl font-bold text-white sm:text-3xl">
                 Get Impact Updates
               </h2>
-              <p className="mt-1 max-w-md text-sm text-stone-400">
+              <p className="mt-1 max-w-md text-sm text-stone-300">
                 Join 12,000+ changemakers receiving quarterly stories, GPS-tagged progress reports, and behind-the-scenes photos from the field.
               </p>
             </div>
@@ -91,7 +91,7 @@ export function Footer() {
                 <button
                   type="submit"
                   id="footer-newsletter-submit"
-                  className="h-12 rounded-lg bg-emerald-600 px-6 text-sm font-semibold text-white shadow-sm transition-all hover:bg-emerald-500 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
+                  className="h-12 rounded-lg bg-emerald-800 px-6 text-sm font-semibold text-white shadow-sm transition-all hover:bg-emerald-700 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
                 >
                   Subscribe
                 </button>
@@ -118,14 +118,14 @@ export function Footer() {
                 Kindred
               </span>
             </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-stone-400">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-stone-300">
               Building a kinder world through community-driven programs,
               compassion, and shared humanity. Every donation is tracked,
               transparent, and tax-deductible.
             </p>
 
             {/* Contact info */}
-            <div className="mt-6 space-y-2 text-sm text-stone-400">
+            <div className="mt-6 space-y-2 text-sm text-stone-300">
               <a href="mailto:hello@kindred.org" className="flex items-center gap-2 transition-colors hover:text-emerald-400">
                 <svg className="size-4 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
                 hello@kindred.org
@@ -149,7 +149,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Follow us on ${label}`}
-                  className="flex size-9 items-center justify-center rounded-full border border-stone-700 text-stone-400 transition-colors hover:border-emerald-500 hover:bg-emerald-950/30 hover:text-emerald-400"
+                  className="flex size-9 items-center justify-center rounded-full border border-stone-700 text-stone-300 transition-colors hover:border-emerald-500 hover:bg-emerald-950/30 hover:text-emerald-400"
                 >
                   <Icon className="size-4" aria-hidden="true" />
                 </a>
@@ -159,13 +159,13 @@ export function Footer() {
 
           {/* Programs */}
           <nav aria-label="Programs navigation">
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-stone-500">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-stone-300">
               Programs
             </h3>
             <ul className="mt-4 space-y-2.5" role="list">
               {footerLinks.programs.map(({ label, href }) => (
                 <li key={href}>
-                  <Link href={href} className="text-sm text-stone-400 transition-colors hover:text-emerald-400">
+                  <Link href={href} className="text-sm text-stone-300 transition-colors hover:text-emerald-400">
                     {label}
                   </Link>
                 </li>
@@ -181,7 +181,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5" role="list">
               {footerLinks.organization.map(({ label, href }) => (
                 <li key={href}>
-                  <Link href={href} className="text-sm text-stone-400 transition-colors hover:text-emerald-400">
+                  <Link href={href} className="text-sm text-stone-300 transition-colors hover:text-emerald-400">
                     {label}
                   </Link>
                 </li>
@@ -197,7 +197,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5" role="list">
               {footerLinks.legal.map(({ label, href }) => (
                 <li key={href}>
-                  <Link href={href} className="text-sm text-stone-400 transition-colors hover:text-emerald-400">
+                  <Link href={href} className="text-sm text-stone-300 transition-colors hover:text-emerald-400">
                     {label}
                   </Link>
                 </li>
@@ -210,7 +210,7 @@ export function Footer() {
       {/* ── Bottom bar ──────────────────────────────────────────── */}
       <div className="border-t border-stone-800">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center gap-4 text-xs text-stone-500 sm:flex-row sm:justify-between">
+          <div className="flex flex-col items-center gap-4 text-xs text-stone-300 sm:flex-row sm:justify-between">
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
               <p>© 2026 Kindred Foundation. All rights reserved.</p>
               <span className="hidden sm:inline" aria-hidden="true">·</span>

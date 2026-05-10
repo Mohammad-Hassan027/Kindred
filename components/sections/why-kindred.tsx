@@ -75,7 +75,7 @@ export function WhyKindred() {
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
         {/* Section header */}
         <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-block rounded-full bg-stone-100 px-4 py-1 text-xs font-semibold tracking-wider text-stone-600 uppercase dark:bg-stone-800 dark:text-stone-400">
+          <span className="inline-block rounded-full bg-stone-100 px-4 py-1 text-xs font-semibold tracking-wider text-stone-700 uppercase dark:bg-stone-800 dark:text-stone-300">
             Our Promise
           </span>
           <h2
@@ -84,7 +84,7 @@ export function WhyKindred() {
           >
             Why Kindred?
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-stone-500 sm:text-lg dark:text-stone-400">
+          <p className="mt-4 text-base leading-relaxed text-stone-600 sm:text-lg dark:text-stone-300">
             We built Kindred on three non-negotiable pillars that put donors and
             communities first.
           </p>
@@ -116,7 +116,7 @@ export function WhyKindred() {
               <h3 className="mt-6 font-heading text-xl font-bold text-stone-900 dark:text-stone-50">
                 {pillar.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-stone-500 dark:text-stone-400">
+              <p className="mt-3 text-sm leading-relaxed text-stone-600 dark:text-stone-300">
                 {pillar.description}
               </p>
             </div>

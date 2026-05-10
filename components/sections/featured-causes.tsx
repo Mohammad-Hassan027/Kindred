@@ -41,7 +41,7 @@ export function FeaturedCauses() {
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
         {/* Section header */}
         <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-block rounded-full bg-emerald-100 px-4 py-1 text-xs font-semibold tracking-wider text-emerald-700 uppercase dark:bg-emerald-950/40 dark:text-emerald-400">
+          <span className="inline-block rounded-full bg-emerald-100 px-4 py-1 text-xs font-semibold tracking-wider text-emerald-800 uppercase dark:bg-emerald-950/40 dark:text-emerald-300">
             Featured Programs
           </span>
           <h2
@@ -50,7 +50,7 @@ export function FeaturedCauses() {
           >
             Causes That Need You
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-stone-500 dark:text-stone-400">
+          <p className="mt-4 text-base leading-relaxed text-stone-600 dark:text-stone-300">
             Each program is vetted for maximum impact. Choose a cause that
             resonates with you and help us reach our funding goals.
           </p>
@@ -88,7 +88,7 @@ export function FeaturedCauses() {
           </div>
 
           {/* Scroll hint for mobile */}
-          <p className="mt-3 text-center text-xs text-stone-400 md:hidden dark:text-stone-500">
+          <p className="mt-3 text-center text-xs text-stone-600 md:hidden dark:text-stone-300">
             Swipe to see more →
           </p>
         </div>

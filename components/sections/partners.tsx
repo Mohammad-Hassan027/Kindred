@@ -44,11 +44,11 @@ export function Partners() {
         <div className="mx-auto max-w-2xl text-center">
           <h2
             id="partners-heading"
-            className="font-heading text-sm font-semibold uppercase tracking-widest text-stone-500 dark:text-stone-400"
+            className="font-heading text-sm font-semibold uppercase tracking-widest text-stone-600 dark:text-stone-300"
           >
             Trusted On-the-Ground Partners
           </h2>
-          <p className="mt-2 text-base text-stone-400 dark:text-stone-500">
+          <p className="mt-2 text-base text-stone-600 dark:text-stone-300">
             Every program is delivered by vetted, locally-embedded NGOs who know their communities.
           </p>
         </div>
@@ -77,7 +77,7 @@ export function Partners() {
               <p className="text-center text-sm font-semibold text-stone-700 dark:text-stone-300">
                 {partner.name}
               </p>
-              <span className="rounded-full bg-stone-100 px-2.5 py-0.5 text-[10px] font-medium text-stone-500 dark:bg-stone-800 dark:text-stone-400">
+              <span className="rounded-full bg-stone-100 px-2.5 py-0.5 text-[10px] font-medium text-stone-700 dark:bg-stone-800 dark:text-stone-300">
                 {partner.category}
               </span>
             </div>

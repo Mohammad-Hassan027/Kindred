@@ -64,7 +64,7 @@ export function DonorStories() {
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
         {/* Section header */}
         <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-block rounded-full bg-amber-100 px-4 py-1 text-xs font-semibold tracking-wider text-amber-700 uppercase dark:bg-amber-950/40 dark:text-amber-400">
+          <span className="inline-block rounded-full bg-amber-100 px-4 py-1 text-xs font-semibold tracking-wider text-amber-800 uppercase dark:bg-amber-950/40 dark:text-amber-300">
             Real Impact
           </span>
           <h2
@@ -73,7 +73,7 @@ export function DonorStories() {
           >
             Donor Stories
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-stone-500 sm:text-lg dark:text-stone-400">
+          <p className="mt-4 text-base leading-relaxed text-stone-600 sm:text-lg dark:text-stone-300">
             Hear from real donors who turned generosity into measurable,
             life-changing impact.
           </p>
@@ -100,7 +100,7 @@ export function DonorStories() {
                 <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
               </svg>
 
-              <p className="flex-1 text-sm leading-relaxed text-stone-600 italic dark:text-stone-400">
+              <p className="flex-1 text-sm leading-relaxed text-stone-700 italic dark:text-stone-300">
                 &ldquo;{donor.quote}&rdquo;
               </p>
 
@@ -136,7 +136,7 @@ export function DonorStories() {
                   <p className="text-sm font-semibold text-stone-800 dark:text-stone-200">
                     {donor.name}
                   </p>
-                  <p className="text-xs text-stone-400 dark:text-stone-500">
+                  <p className="text-xs text-stone-600 dark:text-stone-400">
                     {donor.location}
                   </p>
                 </div>
@@ -144,7 +144,7 @@ export function DonorStories() {
                   <p className="text-sm font-bold text-emerald-600 dark:text-emerald-400">
                     {donor.amount}
                   </p>
-                  <p className="text-[10px] text-stone-400 dark:text-stone-500">
+                  <p className="text-[10px] text-stone-600 dark:text-stone-400">
                     {donor.program}
                   </p>
                 </div>
