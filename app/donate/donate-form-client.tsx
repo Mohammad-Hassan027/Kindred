@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { useSearchParams } from "next/navigation"
+import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import { ImpactCalculator } from "@/components/impact-calculator"
@@ -67,15 +68,49 @@ export function DonateFormClient() {
     return (
       <section className="bg-stone-50 dark:bg-stone-950">
         <div className="mx-auto max-w-2xl px-4 py-20 text-center sm:px-6">
-          <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/40">
-            <svg className="size-8 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-          </div>
-          <h2 className="font-serif text-3xl font-bold text-stone-900 dark:text-stone-50">Thank You, {name.split(" ")[0]}!</h2>
-          <p className="mt-3 text-stone-500 dark:text-stone-400">
+          <motion.div
+            initial={{ scale: 0, rotate: -45 }}
+            animate={{ scale: [0, 1.2, 1], rotate: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut", type: "spring", bounce: 0.5 }}
+            className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/40"
+          >
+            <svg className="size-8 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.4 }}
+            className="font-serif text-3xl font-bold text-stone-900 dark:text-stone-50"
+          >
+            Thank You, {name.split(" ")[0]}!
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.4 }}
+            className="mt-3 text-stone-500 dark:text-stone-400"
+          >
             Your {donationType === "monthly" ? "monthly " : ""}donation of <span className="font-semibold text-emerald-600 dark:text-emerald-400">${amount.toLocaleString()}</span> is making a real difference.
-          </p>
-          <p className="mt-1 text-sm text-stone-400 dark:text-stone-500">A confirmation has been sent to {email}.</p>
-          <a href="/" className={cn(buttonVariants({ size: "lg" }), "mt-8 bg-emerald-600 text-white hover:bg-emerald-500")}>Back to Home</a>
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="mt-1 text-sm text-stone-400 dark:text-stone-500"
+          >
+            A confirmation has been sent to {email}.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+          >
+            <a href="/" className={cn(buttonVariants({ size: "lg" }), "mt-8 bg-emerald-600 text-white hover:bg-emerald-500")}>
+              Back to Home
+            </a>
+          </motion.div>
         </div>
       </section>
     )

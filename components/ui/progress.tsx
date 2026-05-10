@@ -1,6 +1,8 @@
 "use client"
 
+import * as React from "react"
 import { Progress as ProgressPrimitive } from "@base-ui/react/progress"
+import { useInView } from "framer-motion"
 
 import { cn } from "@/lib/utils"
 
@@ -10,9 +12,14 @@ function Progress({
   value,
   ...props
 }: ProgressPrimitive.Root.Props) {
+  const ref = React.useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-50px" })
+  const animatedValue = isInView ? value : 0
+
   return (
     <ProgressPrimitive.Root
-      value={value}
+      ref={ref}
+      value={animatedValue}
       data-slot="progress"
       className={cn("flex flex-wrap gap-3", className)}
       {...props}
@@ -45,7 +52,7 @@ function ProgressIndicator({
   return (
     <ProgressPrimitive.Indicator
       data-slot="progress-indicator"
-      className={cn("h-full rounded-4xl bg-emerald-500 transition-all dark:bg-emerald-400", className)}
+      className={cn("h-full rounded-4xl bg-emerald-500 transition-all duration-1000 ease-out dark:bg-emerald-400", className)}
       {...props}
     />
   )

@@ -12,6 +12,7 @@ import {
   getPercentage,
 } from "@/lib/programs-data"
 import { ProgramDetailClient } from "./program-detail-client"
+import { ShareProgram } from "./share-program"
 
 // ─── Static params for ISR / SSG ────────────────────────────────────────────
 
@@ -342,27 +343,7 @@ export default async function ProgramDetailPage({ params }: PageProps) {
                 </div>
 
                 {/* Share */}
-                <div className="rounded-2xl border border-stone-200/80 bg-white p-5 shadow-sm dark:border-stone-800/80 dark:bg-stone-900">
-                  <p className="text-sm font-medium text-stone-700 dark:text-stone-300">
-                    Spread the word
-                  </p>
-                  <p className="mt-1 text-xs text-stone-400 dark:text-stone-500">
-                    Share this program with friends and family to help us reach
-                    our goal faster.
-                  </p>
-                  <div className="mt-3 flex gap-2">
-                    {["Twitter", "Facebook", "LinkedIn"].map((platform) => (
-                      <button
-                        key={platform}
-                        type="button"
-                        className="flex h-9 flex-1 items-center justify-center rounded-lg border border-stone-200 text-xs font-medium text-stone-600 transition-colors hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-700 dark:border-stone-700 dark:text-stone-400 dark:hover:border-emerald-600 dark:hover:bg-emerald-950/30 dark:hover:text-emerald-400"
-                        aria-label={`Share on ${platform}`}
-                      >
-                        {platform}
-                      </button>
-                    ))}
-                  </div>
-                </div>
+                <ShareProgram title={program.title} />
               </div>
             </aside>
           </div>
