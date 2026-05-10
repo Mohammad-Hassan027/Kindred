@@ -41,6 +41,8 @@ export interface Program {
   testimonial: ProgramTestimonial
   location: string
   featured: boolean
+  /** Name of the local NGO that independently verified this program */
+  verifiedBy: string
 }
 
 // ─── Mock data ──────────────────────────────────────────────────────────────
@@ -83,6 +85,7 @@ Since inception, this program has helped over 3,200 children stay in school and 
     },
     location: "Sub-Saharan Africa & South Asia",
     featured: true,
+    verifiedBy: "African Education Trust",
   },
   {
     id: 2,
@@ -121,6 +124,7 @@ Each well we build serves an average of 500 people and reduces waterborne illnes
     },
     location: "East Africa & Southeast Asia",
     featured: true,
+    verifiedBy: "WaterAid Kenya",
   },
   {
     id: 3,
@@ -159,6 +163,7 @@ Each clinic serves 200–400 patients per month and operates on a sustainable mo
     },
     location: "Central America & West Africa",
     featured: true,
+    verifiedBy: "Médicos Sin Fronteras MX",
   },
   {
     id: 4,
@@ -197,6 +202,7 @@ Every tree planted sequesters an average of 48 lbs of CO₂ per year. Our goal i
     },
     location: "Amazon Basin & Southeast Asia",
     featured: true,
+    verifiedBy: "Amazon Conservation Assoc.",
   },
   {
     id: 5,
@@ -235,6 +241,7 @@ Over 85% of our micro-loan recipients successfully repay their loans within 18 m
     },
     location: "South Asia & East Africa",
     featured: false,
+    verifiedBy: "BRAC Bangladesh",
   },
   {
     id: 6,
@@ -273,6 +280,7 @@ Beyond immediate relief, we fund medium-term recovery — rebuilding schools, re
     },
     location: "Global",
     featured: false,
+    verifiedBy: "IFRC Relief Network",
   },
   {
     id: 7,
@@ -311,6 +319,7 @@ Participants show measurable improvements in school attendance (up 18%), self-re
     },
     location: "United States & Latin America",
     featured: false,
+    verifiedBy: "YouthBuild International",
   },
   {
     id: 8,
@@ -349,6 +358,7 @@ Participants report an average 40% increase in crop yields within two growing se
     },
     location: "Sub-Saharan Africa & Central America",
     featured: false,
+    verifiedBy: "GreenAfrica Foundation",
   },
 ]
 

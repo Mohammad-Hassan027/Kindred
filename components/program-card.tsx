@@ -1,3 +1,6 @@
+"use client"
+
+import * as React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
@@ -17,6 +20,7 @@ interface ProgramCardProps {
 
 export function ProgramCard({ program, variant = "compact" }: ProgramCardProps) {
   const percentage = getPercentage(program.raised, program.goal)
+  const [tooltipVisible, setTooltipVisible] = React.useState(false)
 
   return (
     <article
@@ -26,20 +30,27 @@ export function ProgramCard({ program, variant = "compact" }: ProgramCardProps) 
         variant === "full" && "sm:flex-row",
       )}
     >
-      {/* Image */}
+      {/* ── Image container ─────────────────────────────────────────────── */}
       <div
         className={cn(
           "relative overflow-hidden",
           variant === "compact"
-            ? "aspect-[4/3]"
-            : "aspect-[4/3] sm:aspect-auto sm:w-2/5",
+            ? "aspect-[16/10]"
+            : "aspect-[16/10] sm:aspect-auto sm:w-2/5",
         )}
+        style={{ borderRadius: "8px 8px 0 0" }}
+        onMouseEnter={() => setTooltipVisible(true)}
+        onMouseLeave={() => setTooltipVisible(false)}
       >
+        {/* Documentary photo with 5% brightness boost on hover */}
         <Image
           src={program.image}
           alt={program.title}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className={cn(
+            "object-cover transition-all duration-500",
+            "group-hover:scale-[1.03] group-hover:brightness-[1.05]",
+          )}
           sizes={
             variant === "full"
               ? "(max-width: 640px) 100vw, 40vw"
@@ -47,14 +58,20 @@ export function ProgramCard({ program, variant = "compact" }: ProgramCardProps) 
           }
         />
 
-        {/* Category badge */}
+        {/* Warm golden-hour gradient overlay at bottom */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/40 via-black/10 to-transparent"
+          aria-hidden="true"
+        />
+
+        {/* ── Category badge — top left ──────────────────────────────── */}
         <div className="absolute top-3 left-3">
           <span className="inline-flex items-center rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-stone-700 shadow-sm backdrop-blur-sm dark:bg-stone-900/90 dark:text-stone-300">
             {program.category}
           </span>
         </div>
 
-        {/* Urgency indicator */}
+        {/* ── Urgency indicator — top right ─────────────────────────── */}
         {program.urgency !== "normal" && (
           <div className="absolute top-3 right-3">
             <span
@@ -68,9 +85,7 @@ export function ProgramCard({ program, variant = "compact" }: ProgramCardProps) 
               <span
                 className={cn(
                   "inline-block size-1.5 animate-pulse rounded-full",
-                  program.urgency === "critical"
-                    ? "bg-white"
-                    : "bg-amber-800",
+                  program.urgency === "critical" ? "bg-white" : "bg-amber-800",
                 )}
               />
               {program.urgency === "critical" ? "Urgent" : "High Need"}
@@ -78,14 +93,30 @@ export function ProgramCard({ program, variant = "compact" }: ProgramCardProps) 
           </div>
         )}
 
-        {/* Gradient overlay */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/20 to-transparent"
-          aria-hidden="true"
-        />
+        {/* ── Verified NGO badge — bottom left ──────────────────────── */}
+        <div className="absolute bottom-3 left-3 z-10">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600/95 px-2.5 py-1 text-[10px] font-semibold text-white shadow-md backdrop-blur-sm">
+            {/* Shield-check icon */}
+            <svg
+              className="size-3 shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2.5}
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
+              />
+            </svg>
+            Verified by {program.verifiedBy}
+          </span>
+        </div>
       </div>
 
-      {/* Content */}
+      {/* ── Card content ────────────────────────────────────────────────── */}
       <div className={cn("flex flex-1 flex-col p-5", variant === "full" && "sm:p-6")}>
         <h3
           className={cn(
