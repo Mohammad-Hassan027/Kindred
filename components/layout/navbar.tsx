@@ -120,8 +120,8 @@ export function Navbar() {
         className={cn(
           "fixed inset-0 z-40 flex flex-col bg-stone-50 transition-all duration-300 ease-in-out dark:bg-stone-950 md:hidden",
           isOpen
-            ? "translate-y-0 opacity-100 pointer-events-auto"
-            : "-translate-y-4 opacity-0 pointer-events-none"
+            ? "visible translate-y-0 opacity-100 pointer-events-auto"
+            : "invisible -translate-y-4 opacity-0 pointer-events-none"
         )}
       >
         {/* Spacer for the sticky header height */}
@@ -133,6 +133,7 @@ export function Navbar() {
               <li key={href}>
                 <Link
                   href={href}
+                  tabIndex={!isOpen ? -1 : undefined}
                   className={cn(
                     "flex items-center rounded-xl px-4 py-3 text-base font-medium transition-colors",
                     pathname === href
@@ -150,6 +151,7 @@ export function Navbar() {
           <div className="mt-6 border-t border-stone-200 pt-6 dark:border-stone-800">
             <Link
               href="/donate"
+              tabIndex={!isOpen ? -1 : undefined}
               className={cn(
                 buttonVariants({ size: "lg" }),
                 "w-full bg-emerald-700 text-white hover:bg-emerald-800 focus-visible:ring-emerald-500/50"
