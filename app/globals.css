@@ -74,8 +74,24 @@
 }
 
 @theme inline {
-    --font-serif: var(--font-serif);
-    --font-heading: var(--font-heading);
+    /* ── Font families ───────────────────────────────── */
+    --font-sans: var(--font-sans), 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: var(--font-serif), 'Playfair Display', ui-serif, Georgia, serif;
+    --font-heading: var(--font-heading), 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: var(--font-mono), ui-monospace, 'Cascadia Code', monospace;
+
+    /* ── Kindred brand colors ────────────────────────── */
+    /* Primary background: stone-50 */
+    --color-brand-bg: oklch(0.985 0.002 106.5);
+    /* Text: stone-900 */
+    --color-brand-text: oklch(0.153 0.006 107.1);
+    /* Action / CTA: emerald-600 */
+    --color-brand-action: oklch(0.532 0.157 162.1);
+    --color-brand-action-hover: oklch(0.466 0.140 162.1);
+    /* Accent text: emerald-700 */
+    --color-brand-accent: oklch(0.410 0.123 162.1);
+
+    /* ── Design system tokens ────────────────────────── */
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -129,4 +145,14 @@
   html {
     @apply font-serif;
     }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
