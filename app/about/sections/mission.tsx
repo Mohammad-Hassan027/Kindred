@@ -43,7 +43,7 @@ export function MissionSection() {
           {/* Mission statement */}
           <h1
             id="mission-heading"
-            className="mt-6 font-serif text-3xl font-bold leading-snug tracking-tight text-stone-900 sm:text-4xl md:text-5xl lg:text-[3.25rem] dark:text-stone-50"
+            className="mt-6 font-serif text-2xl font-bold leading-snug tracking-tight text-stone-900 sm:text-3xl md:text-4xl lg:text-[3.25rem] dark:text-stone-50"
           >
             To build a world where{" "}
             <span className="bg-gradient-to-r from-emerald-600 to-emerald-500 bg-clip-text text-transparent dark:from-emerald-400 dark:to-emerald-300">

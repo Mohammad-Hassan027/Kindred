@@ -95,7 +95,7 @@ export function WhyKindred() {
           {pillars.map((pillar, i) => (
             <div
               key={pillar.title}
-              className={`group relative rounded-2xl border border-stone-200/80 bg-stone-50/50 p-8 shadow-sm transition-all duration-700 ease-out hover:border-stone-300 hover:shadow-lg dark:border-stone-800/80 dark:bg-stone-800/30 dark:hover:border-stone-700 ${
+              className={`group relative rounded-2xl border border-stone-200/80 bg-stone-50/50 p-5 shadow-sm transition-all duration-700 ease-out hover:border-stone-300 hover:shadow-lg dark:border-stone-800/80 dark:bg-stone-800/30 dark:hover:border-stone-700 sm:p-8 ${
                 isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-10 opacity-0"
@@ -109,7 +109,7 @@ export function WhyKindred() {
               />
 
               {/* Icon */}
-              <div className={`flex size-14 items-center justify-center rounded-xl ${pillar.iconBg} transition-transform duration-300 group-hover:scale-110`}>
+              <div className={`flex size-12 items-center justify-center rounded-xl sm:size-14 ${pillar.iconBg} transition-transform duration-300 group-hover:scale-110`}>
                 {pillar.icon}
               </div>
 

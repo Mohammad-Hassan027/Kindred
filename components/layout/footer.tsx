@@ -78,7 +78,7 @@ export function Footer() {
                 You&apos;re subscribed! Check your inbox.
               </div>
             ) : (
-              <form onSubmit={handleSubscribe} className="flex w-full max-w-md gap-2">
+              <form onSubmit={handleSubscribe} className="flex w-full max-w-md flex-col gap-2 sm:flex-row">
                 <label htmlFor="footer-newsletter" className="sr-only">Email address</label>
                 <input
                   id="footer-newsletter"
@@ -91,7 +91,7 @@ export function Footer() {
                 <button
                   type="submit"
                   id="footer-newsletter-submit"
-                  className="h-12 rounded-lg bg-emerald-800 px-6 text-sm font-semibold text-white shadow-sm transition-all hover:bg-emerald-700 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
+                  className="h-12 w-full rounded-lg bg-emerald-800 px-6 text-sm font-semibold text-white shadow-sm transition-all hover:bg-emerald-700 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 sm:w-auto"
                 >
                   Subscribe
                 </button>

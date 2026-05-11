@@ -27,9 +27,9 @@ export function TrackProject({ programTitle, milestones }: TrackProjectProps) {
   }
 
   return (
-    <div className="mt-12 rounded-2xl border border-stone-200/80 bg-white shadow-sm dark:border-stone-800/80 dark:bg-stone-900">
+    <div className="mt-12 rounded-2xl border border-stone-200/80 bg-white shadow-sm dark:border-stone-800/80 dark:bg-stone-900 overflow-hidden">
       {/* Header */}
-      <div className="border-b border-stone-100 px-6 py-5 dark:border-stone-800">
+      <div className="border-b border-stone-100 px-4 py-4 sm:px-6 sm:py-5 dark:border-stone-800">
         <div className="flex items-center gap-3">
           <span className="flex size-10 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400">
             <svg className="size-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
@@ -44,9 +44,9 @@ export function TrackProject({ programTitle, milestones }: TrackProjectProps) {
         </div>
       </div>
 
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         {/* Email signup */}
-        <div className="rounded-xl bg-gradient-to-br from-blue-50/80 to-indigo-50/50 p-5 dark:from-blue-950/20 dark:to-indigo-950/10">
+        <div className="rounded-xl bg-gradient-to-br from-blue-50/80 to-indigo-50/50 p-4 sm:p-5 dark:from-blue-950/20 dark:to-indigo-950/10">
           <AnimatePresence mode="wait">
             {submitted ? (
               <motion.div key="success" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-center gap-3 py-2 text-center">
@@ -62,7 +62,7 @@ export function TrackProject({ programTitle, milestones }: TrackProjectProps) {
                   <svg className="size-4 shrink-0 text-blue-500 dark:text-blue-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
                   <label htmlFor="track-email" className="text-sm font-semibold text-stone-700 dark:text-stone-300">Sign up for quarterly email updates</label>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex flex-col gap-2 sm:flex-row">
                   <input id="track-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com" className="h-10 flex-1 rounded-lg border border-stone-200 bg-white px-3 text-sm text-stone-900 outline-none transition-colors placeholder:text-stone-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-200 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-100 dark:placeholder:text-stone-500 dark:focus:border-blue-500 dark:focus:ring-blue-900/40" />
                   <button type="submit" id="track-project-submit" className="h-10 rounded-lg bg-blue-600 px-4 text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue-700 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 dark:bg-blue-500 dark:hover:bg-blue-600">Subscribe</button>
                 </div>

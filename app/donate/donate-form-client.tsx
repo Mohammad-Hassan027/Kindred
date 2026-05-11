@@ -144,7 +144,7 @@ export function DonateFormClient() {
             {/* ── 1. Donation type toggle ───────────────────────── */}
             <fieldset>
               <legend className="font-heading text-lg font-semibold text-stone-900 dark:text-stone-50">Donation Type</legend>
-              <div className="mt-3 grid grid-cols-2 gap-3">
+              <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {(["one-time", "monthly"] as DonationType[]).map((type) => (
                   <button key={type} type="button" onClick={() => setDonationType(type)}
                     className={cn("relative rounded-xl border-2 px-4 py-4 text-left transition-all", donationType === type ? "border-emerald-500 bg-emerald-50/50 shadow-sm dark:border-emerald-400 dark:bg-emerald-950/20" : "border-stone-200 hover:border-stone-300 dark:border-stone-700 dark:hover:border-stone-600")}
@@ -205,7 +205,7 @@ export function DonateFormClient() {
             {/* ── 4. Payment method ─────────────────────────────── */}
             <fieldset>
               <legend className="font-heading text-lg font-semibold text-stone-900 dark:text-stone-50">Payment Method</legend>
-              <div className="mt-3 grid grid-cols-3 gap-3">
+              <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
                 {([
                   { value: "credit-card" as PaymentMethod, label: "Credit Card", icon: "💳" },
                   { value: "paypal" as PaymentMethod, label: "PayPal", icon: "🅿️" },

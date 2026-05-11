@@ -55,14 +55,14 @@ export default async function ProgramDetailPage({ params }: PageProps) {
   return (
     <>
       {/* ── Hero image ───────────────────────────────────────────── */}
-      <section className="relative h-[40vh] min-h-[320px] sm:h-[50vh] lg:h-[55vh]">
+      <section className="relative h-[35vh] min-h-[280px] sm:h-[40vh] sm:min-h-[320px] lg:h-[55vh]">
         <Image
           src={program.image}
           alt={program.title}
           fill
           priority
           className="object-cover"
-          sizes="100vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1920px"
         />
         {/* Overlays */}
         <div
@@ -82,7 +82,7 @@ export default async function ProgramDetailPage({ params }: PageProps) {
               aria-label="Breadcrumb"
               className="mb-4 text-sm text-stone-300"
             >
-              <ol className="flex items-center gap-1.5">
+              <ol className="flex flex-wrap items-center gap-1.5 text-xs sm:text-sm">
                 <li>
                   <Link
                     href="/"
@@ -134,10 +134,10 @@ export default async function ProgramDetailPage({ params }: PageProps) {
               )}
             </div>
 
-            <h1 className="font-serif text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+            <h1 className="font-serif text-2xl font-bold text-white sm:text-3xl lg:text-5xl">
               {program.title}
             </h1>
-            <p className="mt-2 max-w-2xl text-base text-stone-300 sm:text-lg">
+            <p className="mt-2 max-w-2xl text-sm text-stone-300 sm:text-base lg:text-lg">
               {program.tagline}
             </p>
           </div>
@@ -175,7 +175,7 @@ export default async function ProgramDetailPage({ params }: PageProps) {
                 <h2 className="font-heading text-2xl font-bold text-stone-900 dark:text-stone-50">
                   Our Impact
                 </h2>
-                <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+                <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
                   {program.impact.map((item) => (
                     <div
                       key={item.label}

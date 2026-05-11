@@ -36,12 +36,11 @@ Subtle animations powered by **Framer Motion** that provide tactile feedback and
 
 | Layer | Technology |
 | :--- | :--- |
-| **Framework** | [Next.js 15 (App Router)](https://nextjs.org/) |
+| **Framework** | [Next.js (App Router)](https://nextjs.org/) |
 | **Styling** | [Tailwind CSS](https://tailwindcss.com/) |
 | **UI Components** | [Shadcn UI](https://ui.shadcn.com/) |
 | **Animations** | [Framer Motion](https://www.framer.com/motion/) |
-| **Icons** | [Lucide React](https://lucide.dev/) |
-| **Forms/Validation** | [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/) |
+| **Icons** | [@remixicon/react](https://remixicon.com/) |
 | **Deployment** | [Vercel](https://vercel.com/) |
 
 ---

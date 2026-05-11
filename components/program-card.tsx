@@ -114,6 +114,35 @@ export function ProgramCard({ program, variant = "compact" }: ProgramCardProps) 
             Verified by {program.verifiedBy}
           </span>
         </div>
+        {/* ── "See Impact Map" tooltip — appears on hover ────────────── */}
+        <div
+          aria-hidden="true"
+          className={cn(
+            "pointer-events-none absolute bottom-3 right-3 z-10 transition-all duration-300",
+            tooltipVisible
+              ? "translate-y-0 opacity-100"
+              : "translate-y-1 opacity-0",
+          )}
+        >
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-stone-900/85 px-3 py-1.5 text-[11px] font-medium text-white shadow-lg backdrop-blur-sm">
+            {/* Map pin icon */}
+            <svg
+              className="size-3 shrink-0 text-emerald-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z"
+              />
+            </svg>
+            See Impact Map
+          </span>
+        </div>
       </div>
 
       {/* ── Card content ────────────────────────────────────────────────── */}
@@ -133,7 +162,7 @@ export function ProgramCard({ program, variant = "compact" }: ProgramCardProps) 
 
         <p
           className={cn(
-            "mt-2 flex-1 text-sm leading-relaxed text-stone-500 dark:text-stone-400",
+            "mt-2 flex-1 text-sm leading-relaxed text-stone-600 dark:text-stone-300",
             variant === "compact" && "line-clamp-3",
           )}
         >
@@ -141,7 +170,7 @@ export function ProgramCard({ program, variant = "compact" }: ProgramCardProps) 
         </p>
 
         {/* Meta row */}
-        <div className="mt-4 flex items-center gap-4 text-xs text-stone-400 dark:text-stone-500">
+        <div className="mt-4 flex items-center gap-4 text-xs text-stone-600 dark:text-stone-300">
           <span className="flex items-center gap-1">
             <svg className="size-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -170,11 +199,11 @@ export function ProgramCard({ program, variant = "compact" }: ProgramCardProps) 
           <div className="mb-2 flex items-end justify-between">
             <span className="text-sm font-semibold text-stone-800 dark:text-stone-200">
               {formatCurrency(program.raised)}
-              <span className="ml-1 text-xs font-normal text-stone-400 dark:text-stone-500">
+              <span className="ml-1 text-xs font-normal text-stone-600 dark:text-stone-300">
                 raised
               </span>
             </span>
-            <span className="text-xs font-medium text-stone-400 dark:text-stone-500">
+            <span className="text-xs font-medium text-stone-600 dark:text-stone-300">
               {percentage}% of {formatCurrency(program.goal)}
             </span>
           </div>

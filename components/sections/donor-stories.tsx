@@ -79,17 +79,18 @@ export function DonorStories() {
           </p>
         </div>
 
-        {/* Stories grid */}
-        <div className="mt-14 grid gap-8 md:grid-cols-3">
-          {donors.map((donor, i) => (
-            <div
-              key={donor.name}
-              className={`group relative flex flex-col rounded-2xl border border-stone-200/80 bg-white p-6 shadow-sm transition-all duration-700 ease-out hover:shadow-lg dark:border-stone-800/80 dark:bg-stone-900 dark:hover:border-stone-700 ${isVisible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
-                }`}
-              style={{ transitionDelay: `${i * 150}ms` }}
-            >
+        <div className="mt-14">
+          {/* Desktop grid */}
+          <div className="hidden gap-8 md:grid md:grid-cols-3">
+            {donors.map((donor, i) => (
+              <div
+                key={donor.name}
+                className={`group relative flex flex-col rounded-2xl border border-stone-200/80 bg-white p-6 shadow-sm transition-all duration-700 ease-out hover:shadow-lg dark:border-stone-800/80 dark:bg-stone-900 dark:hover:border-stone-700 ${isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                  }`}
+                style={{ transitionDelay: `${i * 150}ms` }}
+              >
               {/* Quote */}
               <svg
                 className="mb-4 size-8 text-emerald-200 dark:text-emerald-800"
@@ -149,8 +150,81 @@ export function DonorStories() {
                   </p>
                 </div>
               </div>
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile horizontal scroll */}
+          <div className="flex gap-4 overflow-x-auto pb-4 md:hidden snap-x snap-mandatory scrollbar-hide">
+            {donors.map((donor) => (
+              <div
+                key={donor.name}
+                className="w-[85vw] max-w-[340px] flex-shrink-0 snap-start"
+              >
+                <div className="group relative flex h-full flex-col rounded-2xl border border-stone-200/80 bg-white p-5 shadow-sm dark:border-stone-800/80 dark:bg-stone-900">
+                  {/* Quote */}
+                  <svg
+                    className="mb-3 size-7 text-emerald-200 dark:text-emerald-800"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
+                  </svg>
+
+                  <p className="flex-1 text-sm leading-relaxed text-stone-700 italic dark:text-stone-300">
+                    &ldquo;{donor.quote}&rdquo;
+                  </p>
+
+                  {/* Impact badge */}
+                  <div className="mt-4 flex items-center gap-2 rounded-lg bg-emerald-50/80 px-3 py-2 dark:bg-emerald-950/20">
+                    <svg
+                      className="size-4 shrink-0 text-emerald-500"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2}
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                    <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-400">
+                      {donor.impact}
+                    </span>
+                  </div>
+
+                  {/* Donor info */}
+                  <div className="mt-4 flex items-center gap-3 border-t border-stone-100 pt-4 dark:border-stone-800">
+                    <div className="relative size-10 shrink-0 overflow-hidden rounded-full border-2 border-stone-200 dark:border-stone-700">
+                      <Image
+                        src={donor.image}
+                        alt={donor.name}
+                        fill
+                        className="object-cover"
+                        sizes="40px"
+                      />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-semibold text-stone-800 dark:text-stone-200">
+                        {donor.name}
+                      </p>
+                      <p className="text-xs text-stone-600 dark:text-stone-400">
+                        {donor.location}
+                      </p>
+                    </div>
+                    <div className="shrink-0 text-right">
+                      <p className="text-sm font-bold text-emerald-600 dark:text-emerald-400">
+                        {donor.amount}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-2 text-center text-xs text-stone-600 md:hidden dark:text-stone-300">
+            Swipe to see more →
+          </p>
         </div>
       </div>
     </section>

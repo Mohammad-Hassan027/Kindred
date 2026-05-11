@@ -17,7 +17,7 @@ export function Hero() {
         fill
         priority
         className="object-cover"
-        sizes="100vw"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1920px"
         aria-hidden="true"
       />
 
@@ -38,7 +38,7 @@ export function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-4xl px-4 py-24 text-center sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 sm:py-24 lg:px-8">
         {/* Eyebrow badge */}
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 backdrop-blur-md">
           <span className="inline-block size-1.5 animate-pulse rounded-full bg-emerald-400" />
@@ -48,7 +48,7 @@ export function Hero() {
         </div>
 
         {/* Headline */}
-        <h1 className="font-serif text-4xl leading-tight font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+        <h1 className="font-serif text-3xl leading-tight font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-7xl">
           Empowering Change,{" "}
           <span className="relative">
             <span className="bg-gradient-to-r from-emerald-300 to-emerald-100 bg-clip-text text-transparent">
@@ -59,14 +59,14 @@ export function Hero() {
         </h1>
 
         {/* Sub-headline */}
-        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-stone-300 sm:text-lg md:text-xl">
+        <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-stone-300 sm:mt-6 sm:text-base md:text-lg">
           Together we fund vital programs, uplift communities, and create
           lasting impact. Your generosity sparks real, measurable change
           in the lives of those who need it most.
         </p>
 
         {/* Dual CTA */}
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
           <Link
             href="/donate"
             id="hero-donate-cta"
@@ -91,7 +91,7 @@ export function Hero() {
         </div>
 
         {/* Trust signals */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-stone-400">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-stone-400 sm:mt-12 sm:gap-x-8 sm:gap-y-3 sm:text-sm">
           <span className="flex items-center gap-1.5">
             <svg className="size-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
               <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />

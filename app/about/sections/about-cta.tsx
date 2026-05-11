@@ -17,7 +17,7 @@ export function AboutCTA() {
     >
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
         <div
-          className={`relative mx-auto max-w-3xl overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-600 via-emerald-700 to-emerald-800 p-8 text-center shadow-xl shadow-emerald-900/20 sm:p-12 lg:p-16 transition-all duration-1000 ease-out ${
+          className={`relative mx-auto max-w-3xl overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-600 via-emerald-700 to-emerald-800 p-6 text-center shadow-xl shadow-emerald-900/20 sm:p-10 lg:p-16 transition-all duration-1000 ease-out ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
         >
@@ -47,7 +47,7 @@ export function AboutCTA() {
 
             <h2
               id="about-cta-heading"
-              className="mt-6 font-serif text-3xl font-bold tracking-tight text-white sm:text-4xl"
+              className="mt-6 font-serif text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl"
             >
               Be Part of Something{" "}
               <span className="italic">Greater</span>

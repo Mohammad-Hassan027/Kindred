@@ -54,7 +54,7 @@ export function ImpactTicker() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         {/* Section label */}
         <div className="mb-10 text-center">
           <span className="inline-block rounded-full bg-emerald-100 px-4 py-1 text-xs font-semibold tracking-wider text-emerald-700 uppercase dark:bg-emerald-950/40 dark:text-emerald-400">
@@ -74,7 +74,7 @@ export function ImpactTicker() {
               }`}
               style={{ transitionDelay: `${i * 120}ms` }}
             >
-              <span className="font-heading text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl lg:text-5xl dark:text-stone-50">
+              <span className="font-heading text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl lg:text-5xl dark:text-stone-50">
                 {stat.value}
               </span>
               <span className="mt-2 text-sm font-medium text-stone-500 dark:text-stone-400">

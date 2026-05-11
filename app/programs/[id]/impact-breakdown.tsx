@@ -268,7 +268,7 @@ export function ImpactBreakdown({ allocations }: ImpactBreakdownProps) {
             transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
             className="overflow-hidden"
           >
-            <div className="mt-1 rounded-xl border border-stone-200/80 bg-white p-6 shadow-sm dark:border-stone-800/80 dark:bg-stone-900">
+            <div className="mt-1 rounded-xl border border-stone-200/80 bg-white p-4 shadow-sm sm:p-6 dark:border-stone-800/80 dark:bg-stone-900">
               <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-start sm:gap-10">
                 {/* Donut chart */}
                 <div className="shrink-0">

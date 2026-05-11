@@ -129,12 +129,12 @@ export function ProgramsListingClient({
           </div>
 
           {/* Filters dropdowns */}
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
             {/* Urgency dropdown */}
             <div className="flex items-center gap-2">
               <label
                 htmlFor="urgency-filter"
-                className="text-xs font-medium text-stone-500 dark:text-stone-400"
+                className="shrink-0 text-xs font-medium text-stone-500 dark:text-stone-400"
               >
                 Urgency:
               </label>
@@ -146,7 +146,7 @@ export function ProgramsListingClient({
                     e.target.value as ProgramUrgency | "all",
                   )
                 }
-                className="h-9 rounded-lg border border-stone-200 bg-white px-3 text-sm text-stone-700 outline-none transition-colors focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300 dark:focus:border-emerald-500 dark:focus:ring-emerald-500/20"
+                className="h-9 w-full rounded-lg border border-stone-200 bg-white px-3 text-sm text-stone-700 outline-none transition-colors focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300 dark:focus:border-emerald-500 dark:focus:ring-emerald-500/20 sm:w-auto"
               >
                 {urgencyOptions.map((opt) => (
                   <option key={opt.value} value={opt.value}>
@@ -160,7 +160,7 @@ export function ProgramsListingClient({
             <div className="flex items-center gap-2">
               <label
                 htmlFor="sort-filter"
-                className="text-xs font-medium text-stone-500 dark:text-stone-400"
+                className="shrink-0 text-xs font-medium text-stone-500 dark:text-stone-400"
               >
                 Sort By:
               </label>
@@ -168,7 +168,7 @@ export function ProgramsListingClient({
                 id="sort-filter"
                 value={activeSort}
                 onChange={(e) => setActiveSort(e.target.value)}
-                className="h-9 rounded-lg border border-stone-200 bg-white px-3 text-sm text-stone-700 outline-none transition-colors focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300 dark:focus:border-emerald-500 dark:focus:ring-emerald-500/20"
+                className="h-9 w-full rounded-lg border border-stone-200 bg-white px-3 text-sm text-stone-700 outline-none transition-colors focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300 dark:focus:border-emerald-500 dark:focus:ring-emerald-500/20 sm:w-auto"
               >
                 {sortOptions.map((opt) => (
                   <option key={opt.value} value={opt.value}>
@@ -182,7 +182,7 @@ export function ProgramsListingClient({
 
         {/* ── Category pills ─────────────────────────────────────── */}
         <div
-          className="mt-6 flex flex-wrap gap-2"
+          className="mt-6 -mx-4 flex gap-2 overflow-x-auto px-4 pb-2 sm:mx-0 sm:flex-wrap sm:overflow-x-visible sm:px-0 sm:pb-0 scrollbar-hide"
           role="group"
           aria-label="Filter by category"
         >
@@ -190,7 +190,7 @@ export function ProgramsListingClient({
             type="button"
             onClick={() => setActiveCategory("all")}
             className={cn(
-              "rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-200",
+              "shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-200",
               activeCategory === "all"
                 ? "bg-emerald-700 text-white shadow-sm"
                 : "bg-stone-100 text-stone-600 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700",
@@ -207,7 +207,7 @@ export function ProgramsListingClient({
                 type="button"
                 onClick={() => setActiveCategory(cat)}
                 className={cn(
-                  "rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-200",
+                  "shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-200",
                   activeCategory === cat
                     ? "bg-emerald-700 text-white shadow-sm"
                     : "bg-stone-100 text-stone-600 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700",

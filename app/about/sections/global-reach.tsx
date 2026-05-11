@@ -111,7 +111,7 @@ export function GlobalReach() {
           {stats.map((stat, i) => (
             <div
               key={stat.label}
-              className={`group flex flex-col items-center rounded-2xl border border-stone-200/60 bg-white p-6 text-center shadow-sm transition-all duration-700 ease-out hover:shadow-md hover:-translate-y-1 dark:border-stone-800/60 dark:bg-stone-900/60 sm:p-8 ${
+              className={`group flex flex-col items-center rounded-2xl border border-stone-200/60 bg-white p-4 text-center shadow-sm transition-all duration-700 ease-out hover:shadow-md hover:-translate-y-1 dark:border-stone-800/60 dark:bg-stone-900/60 sm:p-6 md:p-8 ${
                 isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-8 opacity-0"
@@ -124,7 +124,7 @@ export function GlobalReach() {
               </div>
 
               {/* Value */}
-              <span className="mt-4 font-heading text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl dark:text-stone-50">
+              <span className="mt-4 font-heading text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl md:text-4xl dark:text-stone-50">
                 {stat.value}
               </span>
 
