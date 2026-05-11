@@ -12,10 +12,10 @@ import {
 
 const footerLinks = {
   programs: [
-    { label: "Education", href: "/programs?category=education" },
-    { label: "Clean Water", href: "/programs?category=water" },
-    { label: "Healthcare", href: "/programs?category=healthcare" },
-    { label: "Environment", href: "/programs?category=environment" },
+    { label: "Education", href: "/programs?category=Education" },
+    { label: "Clean Water", href: "/programs?category=Water+%26+Sanitation" },
+    { label: "Healthcare", href: "/programs?category=Healthcare" },
+    { label: "Environment", href: "/programs?category=Environment" },
     { label: "All Programs", href: "/programs" },
   ],
   organization: [
